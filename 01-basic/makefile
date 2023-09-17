@@ -42,6 +42,10 @@ add.o: add.c
 sub.o: sub.c
 	$(CC) $(CFLAGS) -o $@ -c $< 
 
+# 仅仅建立依赖关系, 表示op.h更新后需要重新构建calculator.o
+# 除了头文件之外, 其他类似的依赖关系也可以这样使用
+calculator.o: op.h
+
 calculator.o: calculator.c
 	$(CC) $(CFLAGS) -o $@ -c $< 
 
